@@ -4,13 +4,10 @@ steps:
       - 'container'
       - 'clusters'
       - 'get-credentials'
-      - '[CLUSTER_NAME]'
-      - '--region=australia-southeast2'
+      - '{CLUSTERNAME}'
+      - '--region={REGION}'
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
       - 'apply'
       - '-f'
       - 'deploy.yml'
-
-substitutions:
-  _CLUSTER_NAME: task10d
