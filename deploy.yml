@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task10d
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: task10d
+  template:
+    metadata:
+      labels:
+        app: task10d
+    spec:
+      containers:
+      - name: task10d
+        image: australia-southeast2-docker.pkg.dev/sit737-23t1-arora-5acc5a5/task10d/sit7373:akshatarora
+        ports:
+        - containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: task10dservice
+spec:
+  selector:
+    app: task10d
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
