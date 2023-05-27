@@ -3,6 +3,6 @@ steps:
   args:
   - run
   - --filename=deploy.yml
-  - --image=australia-southeast2-docker.pkg.dev/$PROJECT_ID/task10d/sit7373:akshatarora
+  - --image=australia-southeast2-docker.pkg.dev/$PROJECT_ID/task10d/sit737:akshatarora
   - --location=${_CLOUDSDK_COMPUTE_REGION}
   - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
