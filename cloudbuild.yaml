@@ -5,6 +5,7 @@ steps:
       - 'clusters'
       - 'get-credentials'
       - '[CLUSTER_NAME]'
+      - '--region=[CLUSTER_REGION]'
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
       - 'apply'
@@ -13,3 +14,4 @@ steps:
 
 substitutions:
   _CLUSTER_NAME: task10d
+  _CLUSTER_REGION: 'australia-southeast2'
