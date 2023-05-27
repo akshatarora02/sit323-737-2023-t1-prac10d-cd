@@ -1,11 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
     args:
-      - 'container'
-      - 'clusters'
-      - 'get-credentials'
-      - 'task10d'
-      - '--region=australia-southeast2'
+      - '-c'
+      - |
+        export CLOUDSDK_COMPUTE_REGION='australia-southeast2'
+        export CLOUDSDK_CONTAINER_CLUSTER='task10d'
+        gcloud container clusters get-credentials $CLOUDSDK_CONTAINER_CLUSTER --region=$CLOUDSDK_COMPUTE_REGION
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
       - 'apply'
